@@ -1,16 +1,91 @@
-# React + Vite
+# React + Tailwind CSS Card App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small card-management interface built with React, Vite, and Tailwind CSS. The app demonstrates how to render reusable card components from state, add cards through a form, and switch between light and dark themes.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Displays cards with an image, title, description, and action label.
+- Adds new cards from the form without reloading the page.
+- Toggles Tailwind CSS dark mode using the `dark` class strategy.
+- Uses responsive utility classes to lay out cards in a flexible grid.
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev/) for the user interface
+- [Vite](https://vite.dev/) for development and production builds
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [ESLint](https://eslint.org/) for code quality checks
 
-## Expanding the ESLint configuration
+## Getting started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) 18 or newer
+- npm (included with Node.js)
+
+### Installation
+
+1. Clone the repository and open the project directory.
+2. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the Vite development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL shown in the terminal, usually `http://localhost:5173`.
+
+### Production build
+
+Create an optimized production build:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+### Linting
+
+Run ESLint across the project:
+
+```bash
+npm run lint
+```
+
+## Project structure
+
+```text
+.
+├── src/
+│   ├── components/
+│   │   └── Card.jsx       # Reusable card component
+│   ├── App.jsx            # Card state, form, and theme toggle
+│   ├── App.css            # App-level styles
+│   ├── index.css          # Tailwind directives and global styles
+│   └── main.jsx           # React application entry point
+├── tailwind.config.js     # Tailwind content and dark-mode configuration
+├── postcss.config.cjs     # PostCSS configuration
+└── package.json           # Scripts and dependencies
+```
+
+## How it works
+
+The initial cards are defined in `src/App.jsx`. The form stores its input in local React state and appends a new card to the collection when submitted. `src/components/Card.jsx` receives each card's data as props and renders the card UI.
+
+The theme toggle adds or removes the `dark` class on the app's root container. Tailwind's `dark:` variants then apply the dark theme styles.
+
+## License
+
+This project is intended for learning and experimentation. No license has been specified.
